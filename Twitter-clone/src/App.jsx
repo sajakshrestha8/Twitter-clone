@@ -1,11 +1,11 @@
 import React from "react";
-import Navigation from "./components/Navigation";
+import Search from "./components/search";
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <Navigation />
+        <Search />
       </>
     );
   }
