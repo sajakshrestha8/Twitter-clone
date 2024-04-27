@@ -14,3 +14,11 @@
     border-radius: 50px;
     margin-top: 61px;
 }
+
+.popup-form{
+    background-color: rgb(69, 68, 68);
+    border-radius: 8px;
+    opacity: 100%;
+    color: white;
+    padding: 50px;
+}

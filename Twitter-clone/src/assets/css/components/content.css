@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 0.1fr 1fr;
     column-gap: 20px;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .news-img-wrapper{
@@ -15,4 +15,12 @@
     border-radius: 20px;
     height: 335px;
     width: 100%;
+}
+
+.post{
+    background-color: #e9eaea;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 20px;
 }
