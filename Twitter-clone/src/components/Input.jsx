@@ -4,7 +4,13 @@ class Input extends React.Component {
   render() {
     return (
       <>
-        <input type="text" className="input"></input>
+        <div className="input-wrapper">
+          <input
+            type="text"
+            className="input"
+            placeholder={this.props.placeholder}
+          ></input>
+        </div>
       </>
     );
   }

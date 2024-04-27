@@ -1,2 +1,15 @@
 @import "./reset.css";
 @import "./components/input.css";
+@import "./components/left.css";
+@import "./components//Button.css";
+@import './components/navigation.css';
+@import "./components/right.css";
+@import "./components/content.css";
+@import "./components/contentright.css";
+
+
+.main-grid{
+    display: grid;
+    grid-template-columns: 0.3fr 0.6fr 0.3fr;
+    column-gap: 4rem;
+}

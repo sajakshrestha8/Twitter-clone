@@ -1,0 +1,39 @@
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.logo{
+    height: 70px;
+    width: 70px;
+    margin-left: 34px;
+}
+
+.left-navigation-nav{
+    display: block;
+    margin-top: 87px;
+    margin-bottom: 49px;
+    text-align: center;
+}
+
+.left-navigation-nav > ul{
+    list-style: none;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: 54px;
+}
+
+.left-navigation-nav > ul > li{
+    font-size: 28px;
+}
+
+.left-navigation-nav > ul > li > a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.right-content-wrapper{
+    width: 178px;
+}
