@@ -6,43 +6,73 @@ import Profile from "../assets/Images/profile.png";
 import Newsimg from "../assets/Images/newsimg.jpg";
 
 class Mid extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //       // eslint-disable-next-line react-hooks/rules-of-hooks
-  //       seen: useState(false),
-  //     };
-  //   }
+  constructor(props) {
+    super(props);
+    this.state = {
+      ininame: ["Routine of Nepal Banda"],
+      name: [""],
+      ininews: ["I am Sajak Shrestha"],
+      news: [""],
+    };
+  }
 
-  //   popup() {
-  //     this.setState({
+  popup() {
+    this.setState({});
+  }
 
-  //     })
-  //   }
+  newssubmit() {
+    this.setState({
+      news: [...this.state.ininews, this.state.news],
+    });
+  }
 
   render() {
     return (
       <>
-        {<PopUpInput placeholder="Enter your Status" click="" />}
-        <Navigation />
-        <div className="post">
-          <Content
-            Title={"Hello"}
-            profile={Profile}
-            news={
-              "DRS became one of the top nepali PUBG team to qualify for the PMGC(PUBG Mobile Global Champainship)"
-            }
-            newsimg={Newsimg}
+        {
+          <PopUpInput
+            placeholder="Enter your Status"
+            post="Post"
+            name={(e) => {
+              this.setState({
+                name: e.target.value,
+              });
+            }}
+            news={(news) => {
+              this.setState({
+                news: news.target.value,
+              });
+            }}
+            submit={() => {
+              this.setState({
+                ininame: [...this.state.ininame, this.state.name],
+              });
+              this.newssubmit();
+            }}
           />
+        }
+        <Navigation />
+        <section>
+          {this.state.ininame.map((name, index) => {
+            return (
+              <>
+                <div className="post">
+                  <Content
+                    key={index}
+                    Title={name}
+                    profile={Profile}
+                    news={name}
+                    newsimg={Newsimg}
+                  />
+                </div>
+              </>
+            );
+          })}
 
-          {/* <Popup
-            trigger={<button> Click to open popup </button>}
-            position="right center"
-          >
-            <div>GeeksforGeeks</div>
-            <button>Click here</button>
-          </Popup> */}
-        </div>
+          {this.state.ininews.map((value, index) => {
+            console.log(value);
+          })}
+        </section>
       </>
     );
   }

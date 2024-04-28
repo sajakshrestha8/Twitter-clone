@@ -1,3 +1,4 @@
+import Button from "./Button";
 import React from "react";
 import Popup from "reactjs-popup";
 
@@ -21,11 +22,21 @@ class PopUpInput extends React.Component {
               <br />
               <label>Name</label>
               <br />
-              <input type="text" placeholder="Enter your Name"></input>
+              <input
+                type="text"
+                placeholder="Enter your Name"
+                onChange={this.props.name}
+              ></input>
               <br />
               <label>News</label>
               <br />
-              <input type="textarea" placeholder="Enter your news"></input>
+              <input
+                type="textarea"
+                placeholder="Enter your news"
+                onChange={this.props.news}
+              ></input>
+
+              <Button btn={this.props.post} click={this.props.submit} />
             </section>
           </Popup>
         </div>

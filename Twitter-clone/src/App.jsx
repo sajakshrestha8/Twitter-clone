@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <>
         <div className="main-grid">
-          <div>
+          <div className="left">
             <Left image={Logo} />
           </div>
 

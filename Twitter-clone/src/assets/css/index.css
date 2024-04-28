@@ -13,3 +13,7 @@
     grid-template-columns: 0.3fr 0.6fr 0.3fr;
     column-gap: 4rem;
 }
+
+.left{
+    position: relative;
+}
