@@ -11,14 +11,14 @@ class Mid extends React.Component {
     this.state = {
       news: [
         {
-          title: "test",
-          desc: "test",
+          title: "Routine of Nepal Banda",
+          desc: "I am Sajak Shrestha",
+          profile: Profile,
         },
       ],
-      ininame: ["Routine of Nepal Banda"],
-      ininews: ["I am Sajak Shrestha"],
       title: "",
       desc: "",
+      profile: {},
     };
   }
 
@@ -26,11 +26,11 @@ class Mid extends React.Component {
     this.setState({});
   }
 
-  newssubmit() {
-    this.setState({
-      news: [...this.state.desc, this.state.desc],
-    });
-  }
+  // newssubmit() {
+  //   this.setState({
+  //     news: [...this.state.news, this.state.desc],
+  //   });
+  // }
 
   render() {
     return (
@@ -51,20 +51,20 @@ class Mid extends React.Component {
             }}
             submit={() => {
               this.setState({
-                ininame: [
+                news: [
                   ...this.state.news,
                   {
                     title: this.state.title,
                     desc: this.state.desc,
+                    Profile: this.state.profile,
                   },
                 ],
               });
-              this.newssubmit();
+              // this.newssubmit();
             }}
           />
         }
         <Navigation />
-        {console.log(this.state)}
         <section>
           {this.state.news.map((obj, index) => {
             return (
@@ -73,17 +73,13 @@ class Mid extends React.Component {
                   <Content
                     key={index}
                     Title={obj.title}
-                    profile={Profile}
+                    profile={obj.profile}
                     news={obj.desc}
                     newsimg={Newsimg}
                   />
                 </div>
               </>
             );
-          })}
-
-          {this.state.ininews.map((value, index) => {
-            console.log(value);
           })}
         </section>
       </>

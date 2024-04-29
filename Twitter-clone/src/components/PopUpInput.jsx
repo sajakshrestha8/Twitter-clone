@@ -35,6 +35,11 @@ class PopUpInput extends React.Component {
                 placeholder="Enter your news"
                 onChange={this.props.news}
               ></input>
+              <input
+                type="image"
+                src={this.props.profilesrc}
+                onChange={this.props.imageinput}
+              ></input>
 
               <Button btn={this.props.post} click={this.props.submit} />
             </section>
