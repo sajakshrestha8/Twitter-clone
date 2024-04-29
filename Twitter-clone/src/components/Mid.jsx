@@ -9,10 +9,16 @@ class Mid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      news: [
+        {
+          title: "test",
+          desc: "test",
+        },
+      ],
       ininame: ["Routine of Nepal Banda"],
-      name: [""],
       ininews: ["I am Sajak Shrestha"],
-      news: [""],
+      title: "",
+      desc: "",
     };
   }
 
@@ -22,7 +28,7 @@ class Mid extends React.Component {
 
   newssubmit() {
     this.setState({
-      news: [...this.state.ininews, this.state.news],
+      news: [...this.state.desc, this.state.desc],
     });
   }
 
@@ -35,33 +41,40 @@ class Mid extends React.Component {
             post="Post"
             name={(e) => {
               this.setState({
-                name: e.target.value,
+                title: e.target.value,
               });
             }}
             news={(news) => {
               this.setState({
-                news: news.target.value,
+                desc: news.target.value,
               });
             }}
             submit={() => {
               this.setState({
-                ininame: [...this.state.ininame, this.state.name],
+                ininame: [
+                  ...this.state.news,
+                  {
+                    title: this.state.title,
+                    desc: this.state.desc,
+                  },
+                ],
               });
               this.newssubmit();
             }}
           />
         }
         <Navigation />
+        {console.log(this.state)}
         <section>
-          {this.state.ininame.map((name, index) => {
+          {this.state.news.map((obj, index) => {
             return (
               <>
                 <div className="post">
                   <Content
                     key={index}
-                    Title={name}
+                    Title={obj.title}
                     profile={Profile}
-                    news={name}
+                    news={obj.desc}
                     newsimg={Newsimg}
                   />
                 </div>
