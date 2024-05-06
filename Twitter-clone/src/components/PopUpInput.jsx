@@ -36,7 +36,7 @@ class PopUpInput extends React.Component {
                 onChange={this.props.news}
               ></input>
               <input
-                type="image"
+                type="file"
                 src={this.props.profilesrc}
                 onChange={this.props.imageinput}
               ></input>
