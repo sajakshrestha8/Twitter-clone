@@ -25,8 +25,6 @@ class Left extends React.Component {
             </li>
           </ul>
         </nav>
-
-        <Button btn="Share News" />
       </>
     );
   }

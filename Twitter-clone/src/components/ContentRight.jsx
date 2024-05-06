@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 class ContentRight extends React.Component {
   render() {
@@ -13,6 +14,26 @@ class ContentRight extends React.Component {
             <div>
               <h3>{this.props.Title}</h3>
               <label htmlFor="">{this.props.news}</label>
+            </div>
+            <div>
+              <Button
+                btn={"Delete"}
+                heading={"Do you really want to delete this post?"}
+                popupthing={
+                  <div className="delete-popup">
+                    <label>Are you sure to delete this post?</label>
+                    <br />
+                    <div className="yes-no-wrapper">
+                      <button className="yes" onClick={this.props.btnyes}>
+                        {this.props.yes}
+                      </button>
+                      <button className="no" onClick={this.props.btnno}>
+                        {this.props.no}
+                      </button>
+                    </div>
+                  </div>
+                }
+              />
             </div>
           </div>
 

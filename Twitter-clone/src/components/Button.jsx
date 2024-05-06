@@ -6,11 +6,17 @@ class Button extends React.Component {
   render() {
     return (
       <>
-        <div className="btn-wrapper">
-          <button className="btn" onClick={this.props.click}>
-            {this.props.btn}
-          </button>
-        </div>
+        <Popup
+          trigger={
+            <div className="btn-wrapper">
+              <button className="btn" onClick={this.props.click}>
+                {this.props.btn}
+              </button>
+            </div>
+          }
+        >
+          {this.props.popupthing}
+        </Popup>
       </>
     );
   }

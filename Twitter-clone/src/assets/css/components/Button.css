@@ -12,8 +12,10 @@
     padding-bottom: 15px;
     background-color: #00C2FF;
     font-size: 13px;
+    cursor: pointer;
 }
 
 .btn:active{
     background-color: #89ddf7;
 }
+

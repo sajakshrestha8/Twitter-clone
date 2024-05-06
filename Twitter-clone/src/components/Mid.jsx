@@ -76,7 +76,9 @@ class Mid extends React.Component {
                     profile={obj.profile}
                     news={obj.desc}
                     newsimg={Newsimg}
-                    buttonclick={() => {
+                    yes={"Yes"}
+                    no={"No"}
+                    btnyes={() => {
                       this.setState({
                         news: this.state.news.filter(
                           (value, idx) => index !== idx

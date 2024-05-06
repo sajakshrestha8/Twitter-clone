@@ -1,33 +1,103 @@
 import React from "react";
 import Profile from "../assets/Images/profile.png";
-import Profile1 from "../assets/Images/profile1.png";
 import RightNews from "../assets/Images/newsimg.jpg";
-import RightNews1 from "../assets/Images/newsimg-1.jpg";
 import ContentRight from "./ContentRight";
+import Button from "./Button";
 
 class Right extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      post: [
+        {
+          title: "Hello",
+          news: "Test grdai xu hai",
+        },
+      ],
+    };
+  }
+
+  name = (e) => {
+    this.setState({
+      title: e.target.value,
+    });
+  };
+
+  news = (e) => {
+    this.setState({
+      news: e.target.value,
+    });
+  };
+
+  submit = () => {
+    this.setState({
+      post: [
+        ...this.state.post,
+        {
+          title: this.state.title,
+          news: this.state.news,
+        },
+      ],
+    });
+  };
+
   render() {
     return (
       <>
         <h1 className="trending">Trending News</h1>
 
-        <ContentRight
-          Title={"Hello"}
-          profile={Profile}
-          news={
-            "DRS became one of the top nepali PUBG team to qualify for the PMGC(PUBG Mobile Global Champainship)"
-          }
-          newsimg={RightNews}
-        />
+        {/* Submit */}
+        <Button
+          btn="Share Trending News"
+          popupthing={
+            <section className="popup-form">
+              <label>Share News</label>
+              <br />
+              <label>Name</label>
+              <br />
+              <input
+                type="text"
+                placeholder="Enter your Name"
+                onChange={this.name}
+              ></input>
+              <br />
+              <label>News</label>
+              <br />
+              <input
+                type="textarea"
+                placeholder="Enter your news"
+                onChange={this.news}
+              ></input>
+              <input type="file" src={this.props.profilesrc}></input>
 
-        <ContentRight
-          Title={"Sajak Shrestha"}
-          profile={Profile1}
-          news={
-            "Nasa is hacked by Sajak Shrestha By just Using the core HTML and CSS..."
+              <Button btn={"share"} click={this.submit} />
+            </section>
           }
-          newsimg={RightNews1}
         />
+        <div>
+          {this.state.post.map((value, index) => {
+            return (
+              <>
+                <ContentRight
+                  key={index}
+                  Title={value.title}
+                  profile={Profile}
+                  news={value.news}
+                  newsimg={RightNews}
+                  yes={"Yes"}
+                  no={"No"}
+                  btnyes={(value, index) => {
+                    this.setState({
+                      post: this.state.post.filter(
+                        (value, idx) => index !== idx
+                      ),
+                    });
+                  }}
+                />
+              </>
+            );
+          })}
+        </div>
       </>
     );
   }

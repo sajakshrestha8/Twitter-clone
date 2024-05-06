@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button.jsx";
+import Popup from "reactjs-popup";
 
 class Content extends React.Component {
   render() {
@@ -18,9 +19,20 @@ class Content extends React.Component {
             <Button
               btn={"Delete"}
               heading={"Do you really want to delete this post?"}
-              yes={"Yes"}
-              No={"No"}
-              click={this.props.buttonclick}
+              popupthing={
+                <div className="delete-popup">
+                  <label>Are you sure to delete this post?</label>
+                  <br />
+                  <div className="yes-no-wrapper">
+                    <button className="yes" onClick={this.props.btnyes}>
+                      {this.props.yes}
+                    </button>
+                    <button className="no" onClick={this.props.btnno}>
+                      {this.props.no}
+                    </button>
+                  </div>
+                </div>
+              }
             />
           </div>
         </div>

@@ -16,9 +16,9 @@
 }
 
 .popup-form{
-    background-color: rgb(69, 68, 68);
+    background-color: grey;
     border-radius: 8px;
     opacity: 100%;
     color: white;
-    padding: 50px;
+    padding: 20px;
 }
