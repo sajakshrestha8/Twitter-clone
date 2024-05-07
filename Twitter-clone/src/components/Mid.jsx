@@ -18,17 +18,22 @@ class Mid extends React.Component {
           title: "Routine of Nepal Banda",
           desc: "I am Sajak Shrestha",
           profile: Profile,
+          like: 0,
         },
       ],
-      title: "",
-      desc: "",
-      profile: {},
     };
   }
 
   popup() {
     this.setState({});
   }
+
+  likeclicked = () => {
+    this.setState({
+      like: this.state.news.like + 1,
+    });
+    console.log(this.state.news.like);
+  };
 
   // newssubmit() {
   //   this.setState({
@@ -97,6 +102,8 @@ class Mid extends React.Component {
                       });
                       this.notify1();
                     }}
+                    likeclicked={this.likeclicked}
+                    like={obj.like}
                   />
                 </div>
               </>

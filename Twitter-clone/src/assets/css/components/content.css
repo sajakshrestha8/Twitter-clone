@@ -63,3 +63,26 @@
     background-color: rgb(255, 188, 188);
     cursor: not-allowed;
 }
+
+.content-footer{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr;
+    margin-left: 10rem;
+}
+
+svg.like:hover{
+    fill: rgb(253, 91, 91);
+}
+
+svg.comment:hover{
+    fill: rgb(80, 80, 255)
+}
+
+svg.share:hover{
+    fill: green;
+}
+
+button{
+    border: none;
+    background-color: #e9eaea;
+}

@@ -5,7 +5,7 @@
 .mid-navigation-nav > ul{
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.9fr 1.3fr 1fr 1fr;
 }
 
 .mid-navigation-nav > ul > li{
@@ -16,4 +16,11 @@
 .mid-navigation-nav > ul > li > a{
     text-decoration: none;
     color: black;
+    transition: 0.2s;
+}
+
+.mid-navigation-nav > ul > li > a:hover{
+    background-color: rgb(178, 178, 178);
+    padding: 10px;
+    border-radius: 50px;
 }
