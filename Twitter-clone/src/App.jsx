@@ -14,11 +14,11 @@ class App extends React.Component {
             <Left image={Logo} />
           </div>
 
-          <div>
+          <div className="mid">
             <Mid />
           </div>
 
-          <div>
+          <div className="right">
             <Right />
           </div>
         </div>

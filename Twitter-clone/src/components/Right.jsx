@@ -3,8 +3,12 @@ import Profile from "../assets/Images/profile.png";
 import RightNews from "../assets/Images/newsimg.jpg";
 import ContentRight from "./ContentRight";
 import Button from "./Button";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Right extends React.Component {
+  notify = () => toast.success("Trending News Added successfully");
+  notify1 = () => toast.warning("Trending News Deleted successfully");
   constructor(props) {
     super(props);
     this.state = {
@@ -39,6 +43,7 @@ class Right extends React.Component {
         },
       ],
     });
+    this.notify();
   };
 
   render() {
@@ -71,6 +76,12 @@ class Right extends React.Component {
               <input type="file" src={this.props.profilesrc}></input>
 
               <Button btn={"share"} click={this.submit} />
+              <ToastContainer
+                theme="light"
+                position="bottom-right"
+                autoClose={1000}
+                hideProgressBar={true}
+              />
             </section>
           }
         />
@@ -86,12 +97,13 @@ class Right extends React.Component {
                   newsimg={RightNews}
                   yes={"Yes"}
                   no={"No"}
-                  btnyes={(value, index) => {
+                  btnyes={() => {
                     this.setState({
                       post: this.state.post.filter(
                         (value, idx) => index !== idx
                       ),
                     });
+                    this.notify1(console.log("Clicked"));
                   }}
                 />
               </>

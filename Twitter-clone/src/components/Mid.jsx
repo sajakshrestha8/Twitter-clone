@@ -4,8 +4,12 @@ import Navigation from "./Navigation";
 import Content from "./Content";
 import Profile from "../assets/Images/profile.png";
 import Newsimg from "../assets/Images/newsimg.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Mid extends React.Component {
+  notify = () => toast.success(" New Post Added successfully");
+  notify1 = () => toast.warning("This Post is Deleted successfully");
   constructor(props) {
     super(props);
     this.state = {
@@ -60,10 +64,17 @@ class Mid extends React.Component {
                   },
                 ],
               });
+              this.notify();
               // this.newssubmit();
             }}
           />
         }
+        <ToastContainer
+          theme="light"
+          position="bottom-right"
+          autoClose={1000}
+          hideProgressBar={true}
+        />
         <Navigation />
         <section>
           {this.state.news.map((obj, index) => {
@@ -84,6 +95,7 @@ class Mid extends React.Component {
                           (value, idx) => index !== idx
                         ),
                       });
+                      this.notify1();
                     }}
                   />
                 </div>

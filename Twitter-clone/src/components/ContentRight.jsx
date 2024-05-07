@@ -21,7 +21,7 @@ class ContentRight extends React.Component {
                 heading={"Do you really want to delete this post?"}
                 popupthing={
                   <div className="delete-popup">
-                    <label>Are you sure to delete this post?</label>
+                    <label>Remove this trending post?</label>
                     <br />
                     <div className="yes-no-wrapper">
                       <button className="yes" onClick={this.props.btnyes}>

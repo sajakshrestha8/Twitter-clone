@@ -17,3 +17,24 @@
 .left{
     position: relative;
 }
+
+.mid{
+    max-height: 45rem;
+    overflow-x : hidden;
+    overflow-y: auto;
+
+}
+
+.mid::-webkit-scrollbar{
+    display: none;
+}
+
+.right{
+    max-height: 45rem;
+    overflow-x : hidden;
+    overflow-y: auto;
+}
+
+.right::-webkit-scrollbar{
+    display: none;
+}
