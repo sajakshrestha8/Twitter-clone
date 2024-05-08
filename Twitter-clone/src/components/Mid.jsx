@@ -2,8 +2,6 @@ import React from "react";
 import PopUpInput from "./PopUpInput";
 import Navigation from "./Navigation";
 import Content from "./Content";
-import Profile from "../assets/Images/profile.png";
-import Newsimg from "../assets/Images/newsimg.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,8 +15,14 @@ class Mid extends React.Component {
         {
           title: "Routine of Nepal Banda",
           desc: "I am Sajak Shrestha",
-          profile: Profile,
           like: 0,
+          isclicked: false, // if isClicked true -> show me red color
+        },
+      ],
+      comment: [
+        {
+          name: "Sajak Shrestha",
+          comment: "Very nice so good to know about it right now!!",
         },
       ],
     };
@@ -28,20 +32,72 @@ class Mid extends React.Component {
     this.setState({});
   }
 
-  likeclicked = () => {
+  updateArrayOnIndex = (index, updatedValue) => {
+    const oldArray = this.state.news;
+    const updatedArrayWithUpdatedValue = [
+      ...oldArray.slice(0, index),
+      updatedValue,
+      ...oldArray.slice(index + 1),
+    ];
     this.setState({
-      like: this.state.news.like + 1,
+      news: updatedArrayWithUpdatedValue,
     });
-    console.log(this.state.news.like);
   };
 
-  // newssubmit() {
-  //   this.setState({
-  //     news: [...this.state.news, this.state.desc],
-  //   });
-  // }
+  likeclicked = (index) => {
+    // if isclicked is false then like should be +1, and change isclicked to true
+    // if isclicked is true ignore everything
+    let valueToChange = this.state.news[index]; //false
+    valueToChange.isclicked = !valueToChange.isclicked; // true
+
+    if (valueToChange.isclicked === true) {
+      // user le button thichi sakyo, true xa ki false
+      valueToChange.like = valueToChange.like + 1;
+      this.updateArrayOnIndex(index, valueToChange);
+    } else {
+      valueToChange.like = valueToChange.like - 1;
+      this.updateArrayOnIndex(index, valueToChange);
+    }
+    // const updatedNews = [...this.state.news];
+    // const modified = { isclicked: !updatedNews.isclicked };
+    // console.log(modified);
+    // if (modified[index].isclicked == true) {
+    //   updatedNews[index].like++;
+    //   this.setState({
+    //     news: updatedNews,
+    //     isclicked: modified,
+    //   });
+    // } else {
+    //   this.state.news.like;
+    // }
+  };
+
+  addName = (name) => {
+    this.setState({
+      name: name.target.value,
+    });
+  };
+
+  addComment = (comment) => {
+    this.setState({
+      comment: comment.target.value,
+    });
+  };
+
+  sendComment = () => {
+    this.setState({
+      comment: [
+        ...this.state.comment,
+        {
+          name: this.state.name,
+          comment: this.state.comment,
+        },
+      ],
+    });
+  };
 
   render() {
+    console.log(this.state.news);
     return (
       <>
         {
@@ -66,6 +122,8 @@ class Mid extends React.Component {
                     title: this.state.title,
                     desc: this.state.desc,
                     Profile: this.state.profile,
+                    like: this.state.like,
+                    isclicked: this.state.isclicked,
                   },
                 ],
               });
@@ -88,10 +146,7 @@ class Mid extends React.Component {
                 <div className="post">
                   <Content
                     key={index}
-                    Title={obj.title}
-                    profile={obj.profile}
-                    news={obj.desc}
-                    newsimg={Newsimg}
+                    singleNews={obj}
                     yes={"Yes"}
                     no={"No"}
                     btnyes={() => {
@@ -102,10 +157,21 @@ class Mid extends React.Component {
                       });
                       this.notify1();
                     }}
-                    likeclicked={this.likeclicked}
-                    like={obj.like}
+                    likeclicked={() => {
+                      this.likeclicked(index);
+                    }}
+                    addName={this.addName}
+                    addComment={this.addComment}
+                    sendComment={this.sendComment}
                   />
                 </div>
+              </>
+            );
+          })}
+          {this.state.comment.map((cmt, idx) => {
+            return (
+              <>
+                <Content name={"Sajak"} />
               </>
             );
           })}
