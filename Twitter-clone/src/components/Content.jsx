@@ -5,7 +5,6 @@ import CommentProfile from "../assets/Images/profile.png";
 
 class Content extends React.Component {
   render() {
-    console.log(this.props.singleNews);
     return (
       <>
         <div className="content-heading">
@@ -120,22 +119,6 @@ class Content extends React.Component {
               </svg>
             </button>
             <label>{this.props.share}</label>
-          </div>
-        </div>
-        <label>Comment Section</label>
-        <div className="comment-section">
-          <div className="comment-profile">
-            <img src={CommentProfile}></img>
-          </div>
-
-          <div>
-            <label>
-              <b>{this.props.name}</b>
-            </label>
-          </div>
-          <br />
-          <div>
-            <label>{this.props.comment}</label>
           </div>
         </div>
       </>

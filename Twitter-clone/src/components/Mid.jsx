@@ -2,6 +2,7 @@ import React from "react";
 import PopUpInput from "./PopUpInput";
 import Navigation from "./Navigation";
 import Content from "./Content";
+import Comment from "./Comment";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,10 +18,6 @@ class Mid extends React.Component {
           desc: "I am Sajak Shrestha",
           like: 0,
           isclicked: false, // if isClicked true -> show me red color
-        },
-      ],
-      comment: [
-        {
           name: "Sajak Shrestha",
           comment: "Very nice so good to know about it right now!!",
         },
@@ -85,9 +82,10 @@ class Mid extends React.Component {
   };
 
   sendComment = () => {
+    console.log("Clicked");
     this.setState({
-      comment: [
-        ...this.state.comment,
+      news: [
+        ...this.state.news,
         {
           name: this.state.name,
           comment: this.state.comment,
@@ -97,7 +95,6 @@ class Mid extends React.Component {
   };
 
   render() {
-    console.log(this.state.news);
     return (
       <>
         {
@@ -139,43 +136,35 @@ class Mid extends React.Component {
           hideProgressBar={true}
         />
         <Navigation />
-        <section>
+        <div className="post">
           {this.state.news.map((obj, index) => {
             return (
               <>
-                <div className="post">
-                  <Content
-                    key={index}
-                    singleNews={obj}
-                    yes={"Yes"}
-                    no={"No"}
-                    btnyes={() => {
-                      this.setState({
-                        news: this.state.news.filter(
-                          (value, idx) => index !== idx
-                        ),
-                      });
-                      this.notify1();
-                    }}
-                    likeclicked={() => {
-                      this.likeclicked(index);
-                    }}
-                    addName={this.addName}
-                    addComment={this.addComment}
-                    sendComment={this.sendComment}
-                  />
-                </div>
+                <Content
+                  key={index}
+                  singleNews={obj}
+                  yes={"Yes"}
+                  no={"No"}
+                  btnyes={() => {
+                    this.setState({
+                      news: this.state.news.filter(
+                        (value, idx) => index !== idx
+                      ),
+                    });
+                    this.notify1();
+                  }}
+                  like={obj.like}
+                  likeclicked={() => {
+                    this.likeclicked(index);
+                  }}
+                  addName={this.addName}
+                  sendComment={this.sendComment}
+                />
               </>
             );
           })}
-          {this.state.comment.map((cmt, idx) => {
-            return (
-              <>
-                <Content name={"Sajak"} />
-              </>
-            );
-          })}
-        </section>
+          <Comment name={"Sa"} comment={"sa"} />
+        </div>
       </>
     );
   }
